@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AB75CE81E8BEF7100F2AD84 /* SnakesAndLadders_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB75CE71E8BEF7100F2AD84 /* SnakesAndLadders_Tests.swift */; };
+		4AB75CEA1E8BEF9200F2AD84 /* Swordfish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB75CE91E8BEF9200F2AD84 /* Swordfish.swift */; };
 		4AB9FFB31E8BDF8B00B71C59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9FFB21E8BDF8B00B71C59 /* main.swift */; };
-		4AB9FFC01E8BDFA100B71C59 /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9FFBF1E8BDFA100B71C59 /* UnitTests.swift */; };
 		4AB9FFC61E8BDFCB00B71C59 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9FFC51E8BDFCB00B71C59 /* Board.swift */; };
-		4AB9FFC91E8BE08400B71C59 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AB9FFC81E8BE08400B71C59 /* Info.plist */; };
 		4AB9FFCA1E8BE34000B71C59 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9FFC51E8BDFCB00B71C59 /* Board.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +27,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4AB75CE71E8BEF7100F2AD84 /* SnakesAndLadders_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakesAndLadders_Tests.swift; sourceTree = "<group>"; };
+		4AB75CE91E8BEF9200F2AD84 /* Swordfish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swordfish.swift; sourceTree = "<group>"; };
 		4AB9FFAF1E8BDF8B00B71C59 /* TDSwiftMax-Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "TDSwiftMax-Project"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB9FFB21E8BDF8B00B71C59 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4AB9FFBD1E8BDFA100B71C59 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AB9FFBF1E8BDFA100B71C59 /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
 		4AB9FFC51E8BDFCB00B71C59 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		4AB9FFC81E8BE08400B71C59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,8 +84,9 @@
 		4AB9FFBE1E8BDFA100B71C59 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				4AB75CE91E8BEF9200F2AD84 /* Swordfish.swift */,
 				4AB9FFC81E8BE08400B71C59 /* Info.plist */,
-				4AB9FFBF1E8BDFA100B71C59 /* UnitTests.swift */,
+				4AB75CE71E8BEF7100F2AD84 /* SnakesAndLadders_Tests.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -169,7 +171,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AB9FFC91E8BE08400B71C59 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,8 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB75CE81E8BEF7100F2AD84 /* SnakesAndLadders_Tests.swift in Sources */,
 				4AB9FFCA1E8BE34000B71C59 /* Board.swift in Sources */,
-				4AB9FFC01E8BDFA100B71C59 /* UnitTests.swift in Sources */,
+				4AB75CEA1E8BEF9200F2AD84 /* Swordfish.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +350,7 @@
 				4AB9FFB81E8BDF8B00B71C59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AB9FFC21E8BDFA100B71C59 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
@@ -356,6 +359,7 @@
 				4AB9FFC41E8BDFA100B71C59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
