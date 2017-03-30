@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="UnitTests" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TDSwiftMax-Project" TARGET_NAME="UnitTests" CONFIG_NAME="Debug" SCHEME_NAME="UnitTests" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="0">
+    <envs />
+    <method />
+  </configuration>
+</component>
