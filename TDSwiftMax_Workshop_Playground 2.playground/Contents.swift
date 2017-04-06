@@ -10,14 +10,19 @@ enum Action {
     case Win
     case NoMove
 }
-extension Action: Equatable {}
-func == (lhs: Action, rhs : Action) -> Bool {
-    switch lhs {
-    case .NoMove: if case .NoMove = rhs { return true } else { return false }
-    case .Win: if case .Win = rhs { return true } else { return false }
-    case .MoveTo(let toLhs ): if case .MoveTo( let toRhs ) = rhs { return toLhs == toRhs } else { return false }
+extension Action: Equatable {
+    static func ==(lhs: Action, rhs: Action) -> Bool {
+        switch (lhs,rhs) {
+        case (.NoMove, .NoMove): return true
+        case (.NoMove, _): return false
+        case (.Win, .Win): return true
+        case (.Win, _): return false
+        case (.MoveTo(let lhs), .MoveTo(let rhs)): return lhs == rhs
+        case (.MoveTo, _): return false
+        }
     }
 }
+
 struct Board {
     let size = 100
     let portals : [Int : Portal] =
