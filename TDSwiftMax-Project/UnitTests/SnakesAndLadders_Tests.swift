@@ -6,12 +6,12 @@ import XCTest
 extension Action: Equatable {
     static func ==(lhs: Action, rhs: Action) -> Bool {
         switch (lhs,rhs) {
-        case (.NoMove, .NoMove): return true
-        case (.NoMove, _): return false
-        case (.Win, .Win): return true
-        case (.Win, _): return false
-        case (.MoveTo(let lhs), .MoveTo(let rhs)): return lhs == rhs
-        case (.MoveTo, _): return false
+        case (.noMove, .noMove): return true
+        case (.noMove, _): return false
+        case (.win, .win): return true
+        case (.win, _): return false
+        case (.moveTo(let lhs), .moveTo(let rhs)): return lhs == rhs
+        case (.moveTo, _): return false
         }
     }
 }
