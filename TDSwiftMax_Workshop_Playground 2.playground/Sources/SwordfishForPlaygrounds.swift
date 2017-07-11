@@ -48,7 +48,7 @@ public struct AssertionResult<T> : Error, CustomStringConvertible {
     public var description: String {
         switch resultType {
         case .Pass: return "👍 ok"
-        case .Fail(.Expression): return "❌ expected: \(lhs) \(expressionType) \(rhs)"
+        case .Fail(.Expression): return "❌ \(lhs) \(expressionType) \(rhs)"
         case .Fail(.ExplicitFailure): return "❌ explicit failure" // !TBD message
         }
     }
