@@ -1,16 +1,16 @@
 enum Portal {
-    case snake(Int)
-    case ladder(Int)
+    case snake(UInt)
+    case ladder(UInt)
 }
 enum Action {
-    case moveTo(Int)
+    case moveTo(UInt)
     case win
     case noMove
 }
 
 struct Board {
-    let size = 100
-    let portals : [Int : Portal] =
+    let size : UInt = 100
+    let portals : [UInt : Portal] =
         [
             2 : .ladder(38),
             4 : .ladder(14),
@@ -31,8 +31,8 @@ struct Board {
             95 : .snake(75),
             98 : .snake(78)
         ]
-    func land(on square : Int) -> Action {
-        let finalSquare : Int = {
+    func land(on square : UInt) -> Action {
+        let finalSquare : UInt = {
             switch portals[square] {
             case .some(.snake(let target)): return target
             case .some(.ladder(let target)): return target
