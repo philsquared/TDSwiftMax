@@ -1,75 +1,75 @@
 import Foundation
 
 enum Portal {
-    case Snake(Int)
-    case Ladder(Int)
+    case snake(UInt)
+    case ladder(UInt)
 }
 
 enum Action {
-    case MoveTo(Int)
-    case Win
-    case NoMove
+    case moveTo(UInt)
+    case win
+    case noMove
 }
 extension Action: Equatable {
     static func ==(lhs: Action, rhs: Action) -> Bool {
         switch (lhs,rhs) {
-        case (.NoMove, .NoMove): return true
-        case (.NoMove, _): return false
-        case (.Win, .Win): return true
-        case (.Win, _): return false
-        case (.MoveTo(let lhs), .MoveTo(let rhs)): return lhs == rhs
-        case (.MoveTo, _): return false
+        case (.noMove, .noMove): return true
+        case (.noMove, _): return false
+        case (.win, .win): return true
+        case (.win, _): return false
+        case (.moveTo(let lhs), .moveTo(let rhs)): return lhs == rhs
+        case (.moveTo, _): return false
         }
     }
 }
 
 struct Board {
-    let size = 100
-    let portals : [Int : Portal] =
+    let size : UInt = 100
+    let portals : [UInt : Portal] =
         [
-            2 : .Ladder(38),
-            4 : .Ladder(14),
-            8 : .Ladder(31),
-            21 : .Ladder(42),
-            28 : .Ladder(84),
-            36 : .Ladder(44),
-            47 : .Snake(26),
-            49 : .Snake(11),
-            51 : .Ladder(67),
-            56 : .Snake(53),
-            62 : .Snake(18),
-            64 : .Snake(60),
-            71 : .Ladder(91),
-            80 : .Ladder(100),
-            87 : .Snake(24),
-            93 : .Snake(73),
-            95 : .Snake(75),
-            98 : .Snake(78)
+            2 : .ladder(38),
+            4 : .ladder(14),
+            8 : .ladder(31),
+            21 : .ladder(42),
+            28 : .ladder(84),
+            36 : .ladder(44),
+            47 : .snake(26),
+            49 : .snake(11),
+            51 : .ladder(67),
+            56 : .snake(53),
+            62 : .snake(18),
+            64 : .snake(60),
+            71 : .ladder(91),
+            80 : .ladder(100),
+            87 : .snake(24),
+            93 : .snake(73),
+            95 : .snake(75),
+            98 : .snake(78)
     ]
-    func land(on square:Int)-> Action {
-        let finalSquare : Int = {
+    func land(on square:UInt)-> Action {
+        let finalSquare : UInt = {
             switch portals[square] {
-            case .some(.Snake(let target)): return target
-            case .some(.Ladder(let target)): return target
+            case .some(.snake(let target)): return target
+            case .some(.ladder(let target)): return target
             default: return square
             }
         }()
         switch finalSquare {
-        case size: return .Win
-        case let x where x > size: return .NoMove
-        default: return .MoveTo(finalSquare)
+        case size: return .win
+        case let x where x > size: return .noMove
+        default: return .moveTo(finalSquare)
         }
     }
 }
 
 let board = Board()
 
-require() | board.land(on:1) == .MoveTo(1)
-require() | board.land(on:2) == .MoveTo(38)
-require() | board.land(on:47) == .MoveTo(26)
-require() | board.land(on:100) == .Win
-require() | board.land(on:80) == .Win
-require() | board.land(on:101) == .NoMove
+require() | board.land(on:1) == .moveTo(1)
+require() | board.land(on:2) == .moveTo(38)
+require() | board.land(on:47) == .moveTo(26)
+require() | board.land(on:100) == .win
+require() | board.land(on:80) == .win
+require() | board.land(on:101) == .noMove
 
 enum PlayerColour {
     case Red
@@ -80,15 +80,15 @@ enum PlayerColour {
 
 class Player {
     let colour : PlayerColour
-    var square = 0
+    var square : UInt = 0
     
     init( _ colour : PlayerColour ) {
         self.colour = colour
     }
 }
 
-func throwDie() -> Int {
-    return Int(arc4random_uniform(6))+1
+func throwDie() -> UInt {
+    return UInt(arc4random_uniform(6))+1
 }
 
 struct Turn {
@@ -100,8 +100,8 @@ class Game {
     let players : [Player]
     var currentPlayer = 0
     let board = Board()
-    let die : () -> Int
-    init( _ players : [Player], die : @escaping () -> Int = throwDie) {
+    let die : () -> UInt
+    init( _ players : [Player], die : @escaping () -> UInt = throwDie) {
         self.players = players
         self.die = die
         // Make sure players all start on the first square
@@ -131,8 +131,8 @@ while stillPlaying {
     let turn = game.takeTurn()
     print( "\(turn.player.colour) goes:")
     switch turn.action {
-    case .Win: print( " - and wins the game!"); stillPlaying = false
-    case .NoMove: print( " ... and does not move")
-    case .MoveTo(let target): print (" - and moves to \(target)")
+    case .win: print( " - and wins the game!"); stillPlaying = false
+    case .noMove: print( " ... and does not move")
+    case .moveTo(let target): print (" - and moves to \(target)")
     }
 }
