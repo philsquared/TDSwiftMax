@@ -2,7 +2,7 @@ enum Portal {
     case snake(UInt)
     case ladder(UInt)
 }
-enum Action {
+enum Action : Equatable {
     case moveTo(UInt)
     case win
     case noMove
